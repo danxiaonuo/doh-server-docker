@@ -28,3 +28,15 @@ services:
       nofile:
           soft: 65535
           hard: 65535
+
+networks:
+  app_net:
+    enable_ipv6: true
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.186.0.0/24
+        gateway: 172.186.0.1
+      - subnet: 8888:9999:8888::/64
+        gateway: 8888:9999:8888::1
